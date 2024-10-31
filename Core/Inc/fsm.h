@@ -13,7 +13,7 @@
 extern int MODE;
 extern int MODE_CHANGE;
 extern int fsm_auto_stage;
-extern int prev_mode_val;
+extern int PREV_MODE_TIME;
 extern int count_WE;
 extern int count_NS;
 extern int GREEN_TIME;

@@ -69,13 +69,13 @@ void update7SEG(int turn){
 	display7SEG(SEG2 / 10, SEG2 % 10);
 }
 
-void DISPLAY_OUTPUT(){
+void displayOutput(){
 	turnOff7SEG();
 	toggle7SEG(SEG_turn);
 	SEG_turn = 1 - SEG_turn;
 }
 
-void ALL_LED_OFF(){
+void allLEDOff(){
     HAL_GPIO_WritePin(D0_GPIO_Port, D0_Pin, SET);
     HAL_GPIO_WritePin(D1_GPIO_Port, D1_Pin, SET);
     HAL_GPIO_WritePin(D2_GPIO_Port, D2_Pin, SET);
@@ -86,7 +86,7 @@ void ALL_LED_OFF(){
 
 void setting_stage(){
 	if (MODE_CHANGE == 1){
-		ALL_LED_OFF();
+		allLEDOff();
 		MODE_CHANGE = 0;
 	}
 	if (timer2_flag == 1){

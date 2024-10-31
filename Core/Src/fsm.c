@@ -7,12 +7,12 @@
 #include <fsm.h>
 #include "button.h"
 
-int SEG1 = 12, SEG2 = 34;
+int SEG1, SEG2 = 0;
 int SEG_turn = 1;
 int MODE = 0;
 int MODE_CHANGE = 1;
 int fsm_auto_stage = 4;
-int prev_mode_val = 0;
+int PREV_MODE_TIME = 0;
 int count_WE = -1;
 int count_NS = -1;
 int GREEN_TIME = 600;
@@ -24,13 +24,13 @@ void fsm_setting(){
 		MODE++;
 		MODE_CHANGE = 1;
 		if (MODE == 1){
-			prev_mode_val = RED_TIME;
+			PREV_MODE_TIME = RED_TIME;
 		}
 		if (MODE == 2){
-			prev_mode_val = YELLOW_TIME;
+			PREV_MODE_TIME = YELLOW_TIME;
 		}
 		if (MODE == 3){
-			prev_mode_val = GREEN_TIME;
+			PREV_MODE_TIME = GREEN_TIME;
 		}
 		if (MODE > 3){
 			MODE = 0;
@@ -96,25 +96,25 @@ void fsm_auto(){
 }
 
 void fsm_manual(){
-	SEG1 = prev_mode_val / 100;
+	SEG1 = PREV_MODE_TIME / 100;
 	SEG2 = MODE + 1;
 	if (isButtonPressed(1) == 1){
-		prev_mode_val += 100;
-		if (prev_mode_val > 9900){
-			prev_mode_val = 100;
+		PREV_MODE_TIME += 100;
+		if (PREV_MODE_TIME > 9900){
+			PREV_MODE_TIME = 100;
 		}
 	}
 	if (isButtonPressed(2) == 1){
 		if (MODE == 1){
-			RED_TIME = prev_mode_val;
+			RED_TIME = PREV_MODE_TIME;
 			GREEN_TIME = RED_TIME - YELLOW_TIME; //increase green time whenever red time was increased
 		}
 		if (MODE == 2){
-			YELLOW_TIME = prev_mode_val;
+			YELLOW_TIME = PREV_MODE_TIME;
 			RED_TIME = GREEN_TIME + YELLOW_TIME; //increase red time whenever yellow time was increased
 		}
 		if (MODE == 3){
-			GREEN_TIME = prev_mode_val;
+			GREEN_TIME = PREV_MODE_TIME;
 			RED_TIME = GREEN_TIME + YELLOW_TIME; //increase red time whenever green time was increased
 		}
 		MODE = 0; //back to auto mode when time was set

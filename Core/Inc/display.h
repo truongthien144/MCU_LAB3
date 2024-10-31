@@ -16,8 +16,8 @@ void display7SEG(int num1, int num2);
 void update7SEG(int turn);
 void toggle7SEG(int turn);
 void turnOff7SEG();
-void ALL_LED_OFF();
-void DISPLAY_OUTPUT();
+void allLEDOff();
+void displayOutput();
 void setting_stage();
 
 #endif /* INC_DISPLAY_H_ */

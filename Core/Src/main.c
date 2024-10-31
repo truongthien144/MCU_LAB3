@@ -116,7 +116,7 @@ int main(void)
 	  }
 
 	  if (timer0_flag == 1){
-		  DISPLAY_OUTPUT();
+		  displayOutput();
 		  setTimer0(30);
 	  }
     /* USER CODE BEGIN 3 */
