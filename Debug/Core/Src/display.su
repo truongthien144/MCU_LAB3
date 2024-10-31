@@ -1,0 +1,7 @@
+display.c:9:6:display7SEG	32	static
+display.c:49:6:toggle7SEG	16	static
+display.c:59:6:turnOff7SEG	8	static
+display.c:64:6:update7SEG	16	static
+display.c:72:6:DISPLAY_OUTPUT	8	static
+display.c:78:6:ALL_LED_OFF	8	static
+display.c:87:6:setting_stage	8	static

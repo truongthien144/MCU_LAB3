@@ -1,0 +1,5 @@
+fsm.c:22:6:fsm_setting	8	static
+fsm.c:41:6:reset_fsm_auto	4	static
+fsm.c:48:6:fsm_auto_timer	4	static
+fsm.c:53:6:fsm_auto	8	static
+fsm.c:98:6:fsm_manual	8	static

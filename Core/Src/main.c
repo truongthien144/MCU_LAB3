@@ -19,6 +19,10 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "software_timer.h"
+#include "button.h"
+#include "display.h"
+#include "fsm.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -94,10 +98,27 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  initButton();
   while (1)
   {
     /* USER CODE END WHILE */
+	  fsm_setting();
 
+	  if (MODE == 0){
+		  if (MODE_CHANGE == 1){
+			  reset_fsm_auto();
+		  }
+		  fsm_auto();
+	  }
+	  else{
+		  setting_stage();
+		  fsm_manual();
+	  }
+
+	  if (timer0_flag == 1){
+		  DISPLAY_OUTPUT();
+		  setTimer0(30);
+	  }
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -234,14 +255,19 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pins : BTN1_Pin BTN2_Pin BTN0_Pin */
   GPIO_InitStruct.Pin = BTN1_Pin|BTN2_Pin|BTN0_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 }
 
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
-
+	timerRun();
+	getKeyInput();
+	update7SEG(SEG_turn);
+	if (MODE == 0){
+		fsm_auto_timer();
+	}
 }
 /* USER CODE END 4 */
 
