@@ -4,8 +4,10 @@
  *  Created on: Oct 25, 2024
  *      Author: TruongThien
  */
-#include <fsm.h>
+#include "fsm.h"
 #include "button.h"
+#include "led7_segment.h"
+#include "software_timer.h"
 
 int SEG1, SEG2 = 0;
 int SEG_turn = 1;
@@ -35,6 +37,21 @@ void fsm_setting(){
 		if (MODE > 3){
 			MODE = 0;
 		}
+	}
+	if (MODE == 0){
+	  if (MODE_CHANGE == 1){
+		  reset_fsm_auto();
+	  }
+	  fsm_auto();
+	}
+	else{
+	  setting_stage();
+	  fsm_manual();
+	}
+
+	if (timer0_flag == 1){
+	  displayOutput();
+	  setTimer0(30);
 	}
 }
 

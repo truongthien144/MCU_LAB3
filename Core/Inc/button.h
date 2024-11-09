@@ -22,6 +22,5 @@ extern int button_long_flag[BTN_NUM];
 void initButton();
 void getKeyInput();
 int isButtonPressed(int btn_num);
-int isButtonLongPressed(int btn_num);
 
 #endif /* INC_BUTTON_H_ */

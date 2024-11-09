@@ -1,0 +1,7 @@
+led7_segment.c:9:6:display7SEG	32	static
+led7_segment.c:49:6:toggle7SEG	16	static
+led7_segment.c:59:6:turnOff7SEG	8	static
+led7_segment.c:64:6:update7SEG	16	static
+led7_segment.c:72:6:displayOutput	8	static
+led7_segment.c:78:6:allLEDOff	8	static
+led7_segment.c:87:6:setting_stage	8	static

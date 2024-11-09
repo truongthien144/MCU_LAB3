@@ -1,5 +1,5 @@
-Core/Src/display.o: ../Core/Src/display.c ../Core/Inc/display.h \
- ../Core/Inc/fsm.h ../Core/Inc/main.h \
+Core/Src/led7_segment.o: ../Core/Src/led7_segment.c \
+ ../Core/Inc/led7_segment.h ../Core/Inc/fsm.h ../Core/Inc/main.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
@@ -26,7 +26,7 @@ Core/Src/display.o: ../Core/Src/display.c ../Core/Inc/display.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
  ../Core/Inc/software_timer.h
 
-../Core/Inc/display.h:
+../Core/Inc/led7_segment.h:
 
 ../Core/Inc/fsm.h:
 

@@ -35,14 +35,6 @@ int isButtonPressed(int btn_num){
 	return 0;
 }
 
-int isButtonLongPressed(int btn_num){
-	if(button_long_flag[btn_num] == 1){
-		button_long_flag[btn_num] = 0;
-		return 1;
-	}
-	return 0;
-}
-
 void getKeyInput(){
 	for (int i = 0; i < BTN_NUM; i++){
 		KeyReg2[i] = KeyReg1[i];

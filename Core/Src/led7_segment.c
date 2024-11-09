@@ -1,10 +1,10 @@
 /*
- * display.c
+ * led7_segment.c
  *
  *  Created on: Oct 25, 2024
  *      Author: TruongThien
  */
-#include "display.h"
+#include "led7_segment.h"
 
 void display7SEG(int num1, int num2){
 	const uint8_t segmentPatterns[10] = {
@@ -89,7 +89,7 @@ void setting_stage(){
 		allLEDOff();
 		MODE_CHANGE = 0;
 	}
-	if (timer2_flag == 1){
+	if (timer1_flag == 1){
 		//For red LEDs
 		if (MODE == 1){
 			HAL_GPIO_TogglePin(D0_GPIO_Port, D0_Pin);
@@ -105,6 +105,6 @@ void setting_stage(){
 			HAL_GPIO_TogglePin(D2_GPIO_Port, D2_Pin);
 			HAL_GPIO_TogglePin(D5_GPIO_Port, D5_Pin);
 		}
-		setTimer2(25); //Blinking in 2Hz
+		setTimer1(25); //Blinking in 2Hz
 	}
 }

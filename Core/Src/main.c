@@ -21,7 +21,7 @@
 #include "main.h"
 #include "software_timer.h"
 #include "button.h"
-#include "display.h"
+#include "led7_segment.h"
 #include "fsm.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -103,22 +103,6 @@ int main(void)
   {
     /* USER CODE END WHILE */
 	  fsm_setting();
-
-	  if (MODE == 0){
-		  if (MODE_CHANGE == 1){
-			  reset_fsm_auto();
-		  }
-		  fsm_auto();
-	  }
-	  else{
-		  setting_stage();
-		  fsm_manual();
-	  }
-
-	  if (timer0_flag == 1){
-		  displayOutput();
-		  setTimer0(30);
-	  }
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

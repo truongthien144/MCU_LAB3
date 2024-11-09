@@ -1,5 +1,5 @@
 /*
- * display.h
+ * led7_segment.h
  *
  *  Created on: Oct 25, 2024
  *      Author: TruongThien
