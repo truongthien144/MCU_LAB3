@@ -21,7 +21,7 @@ int GREEN_TIME = 600;
 int YELLOW_TIME = 300;
 int RED_TIME = 900;
 
-void fsm_setting(){
+void fsm_setting(void){
 	if (isButtonPressed(0) == 1){
 		MODE++;
 		MODE_CHANGE = 1;
@@ -49,10 +49,10 @@ void fsm_setting(){
 	  fsm_manual();
 	}
 
-	if (timer0_flag == 1){
+//	if (timer0_flag == 1){
 	  displayOutput();
 	  setTimer0(30);
-	}
+//	}
 }
 
 void reset_fsm_auto(){
